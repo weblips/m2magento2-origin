@@ -1,7 +1,6 @@
 <?php
 /**
- * Copyright © 2016 MageWorx. All rights reserved.
- * See LICENSE.txt for license details.
+ * bookclub 2017 copy new Example
  */
 
 namespace MageWorx\SearchSuiteAutocomplete\Block;
@@ -43,11 +42,6 @@ class Autocomplete extends \Magento\Framework\View\Element\Template
         return $this->helperData->getSearchDelay();
     }
 
-    /**
-     * Retrieve search action url
-     *
-     * @return string
-     */
     public function getSearchUrl()
     {
         return $this->getUrl("mageworx_searchsuiteautocomplete/ajax/index");
