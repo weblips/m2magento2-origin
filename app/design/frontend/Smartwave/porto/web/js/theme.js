@@ -7,6 +7,8 @@ require([
     'mage/smart-keyboard-handler',
     'mage/mage',
     'mage/ie-class-fixer',
+    'mage/validation',
+    'mage/translate',
     'domReady!'
 ], function ($, keyboardHandler) {
     'use strict';
@@ -18,6 +20,17 @@ require([
         $('.panel.header .header.links').clone().appendTo('#store\\.links');
     });
     keyboardHandler.apply();
+     // translate js weblips-hack
+    $.each($.validator.messages, function(validationMessageKey, validationMessage) {
+        if (typeof validationMessage == 'string') {
+            $.validator.messages[validationMessageKey] = $.mage.__(validationMessage);
+        }
+    });
+
+    $.validator.messages = $.extend($.validator.messages, {
+        equalTo: "Пожалуйста, убедитесь, что пароли совпадают."
+    }); 
+    // end translate js 
 });
 /******************** Init Parallax ***********************/
 require([
